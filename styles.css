@@ -1,0 +1,177 @@
+html,
+body {
+  height: 100%;
+}
+@font-face {
+  font-family: "Enchanted Tales";
+  src: url("fonts/EnchantedTales.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.title,
+h1,
+h2,
+h3 {
+  font-family: "Enchanted Tales", serif;
+}
+
+body {
+  margin: 0;
+  height: 3000px;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+    "Apple Color Emoji", "Segoe UI Emoji";
+  color: #f5f5f7;
+  background-image: url("background main.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+}
+
+.site {
+  width: min(1920px, 100%);
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.overlay {
+  backdrop-filter: brightness(0.95) saturate(1.05);
+  background: rgba(5, 8, 15, 0.25);
+  flex: 1;
+}
+
+/* Dropdown container */
+.dropdown {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+/* Button styling */
+.dropdown-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.dropdown-btn img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-btn:hover img {
+  transform: rotate(20deg);
+}
+
+/* Animated dropdown content */
+.dropdown-content {
+  max-height: 0; /* hidden by default */
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 50px;
+  background-color: rgba(0, 0, 0, 0.85);
+  min-width: 140px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: max-height 0.4s ease; /* animation effect */
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+  font-family: "Madani Light", serif;
+  transition: background 0.3s ease;
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Show menu when active */
+.dropdown.active .dropdown-content {
+  max-height: 300px; /* large enough for menu items */
+}
+
+header {
+  padding: 32px clamp(16px, 4vw, 48px);
+}
+
+.hero {
+  position: relative; /* allows absolute positioning inside */
+  text-align: left;
+  padding: 60px 20px; /* space so gif doesn't get cut off */
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 1.1;
+  margin: 0 0 0.5rem;
+}
+
+.tagline {
+  font-size: clamp(1rem, 2.2vw, 1.4rem);
+  opacity: 0.92;
+  max-width: 60ch;
+}
+
+.card-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  padding: 2rem clamp(16px, 4vw, 48px) 4rem;
+}
+
+.card {
+  background: rgba(20, 24, 33, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(3px);
+}
+
+a.button {
+  display: inline-block;
+  margin-top: 1.25rem;
+  padding: 0.9rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease;
+}
+a.button:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+footer {
+  padding: 2rem;
+  opacity: 0.75;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.title-video-wrapper {
+  position: absolute; /* place anywhere inside hero */
+  top: 90%; /* adjust position vertically */
+  left: 70%; /* adjust position horizontally */
+  transform: translate(-50%, -50%); /* perfect center */
+  z-index: -1; /* send behind the text */
+}
+
+.title-video {
+  width: 1500px; /* change this to resize gif */
+  height: auto;
+}

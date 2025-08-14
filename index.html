@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sunny • Cosmic Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="dropdown">
+      <button class="dropdown-btn">
+        <img src="images/Sun Ui.png" alt="Menu" />
+      </button>
+      <div class="dropdown-content">
+        <!-- Changed About Me to link to a new page -->
+        <a href="about.html">About Me</a>
+        <a href="#projects">Project</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+
+    <script src="SUNMENU.js"></script>
+
+    <div class="site">
+      <div class="overlay">
+        <header>
+          <strong>Sunny</strong>
+        </header>
+
+        <section class="hero">
+          <h1 class="title">Designing with stardust.</h1>
+          <p class="tagline">
+            Graphic designer orbiting branding, illustration, and digital
+            experiences. Pixels, planets, and punchy ideas.
+          </p>
+          <a class="button" href="#work">See Work</a>
+
+          <div class="title-video-wrapper">
+            <img
+              src="Video/portfolio animation.gif"
+              alt="Cosmic animation"
+              class="title-video"
+            />
+          </div>
+        </section>
+
+        <section id="work" class="card-row">
+          <article class="card">
+            <h3>Featured Project</h3>
+            <p>
+              Brand identity that shines like a nebula—bold color systems, logo,
+              and socials.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Motion & Web</h3>
+            <p>
+              Micro-interactions and motion graphics that travel at light speed.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Illustration</h3>
+            <p>
+              Playful constellations of line and shape for posters and
+              packaging.
+            </p>
+          </article>
+        </section>
+
+        <footer>© <span id="y"></span> Sunny — Cosmic Portfolio</footer>
+      </div>
+    </div>
+    <script>
+      document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+    <script>
+      document
+        .querySelector(".dropdown-btn")
+        .addEventListener("click", function () {
+          document.querySelector(".dropdown").classList.toggle("active");
+        });
+    </script>
+  </body>
+</html>

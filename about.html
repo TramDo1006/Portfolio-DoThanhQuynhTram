@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About Me • Sunny</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="about.css" />
+  </head>
+  <body>
+    <!-- Dropdown Menu -->
+    <div class="dropdown">
+      <button class="dropdown-btn">
+        <img src="images/Sun Ui.png" alt="Menu" />
+      </button>
+      <div class="dropdown-content">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="#projects">Project</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+
+    <div class="about-container">
+      <!-- Hình bên trái -->
+      <div class="about-image">
+        <img src="images/Grid cirrcle (1).png" alt="Decorative Grid Circle" />
+      </div>
+
+      <!-- Nội dung bên phải -->
+      <div class="about-text">
+        <h1 class="enchanted-title">ABOUT ME</h1>
+        <p class="about-description">
+          I’m Sunny, a graphic designer whose work blends clean, intentional
+          design with a cosmic sense of wonder. Like mapping constellations, I
+          connect ideas into visual stories, from branding and identities to
+          playful illustrations and bold layouts. Inspired by light, color, and
+          the rhythms of the cosmos, I create designs that feel timeless yet
+          alive, lingering in memory like a glimpse of the Milky Way.
+        </p>
+        <p class="about-quote">"Design in lightyears, deliver in seconds."</p>
+      </div>
+    </div>
+
+    <script src="SUNMENU.js"></script>
+    <script>
+      document
+        .querySelector(".dropdown-btn")
+        .addEventListener("click", function () {
+          document.querySelector(".dropdown").classList.toggle("active");
+        });
+    </script>
+  </body>
+</html>
