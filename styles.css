@@ -1,7 +1,28 @@
+/* -----------------------------
+   GENERAL RESET & BODY
+------------------------------ */
 html,
 body {
+  margin: 0;
+  padding: 0;
   height: 100%;
+  overflow-x: hidden;
+  font-family: "Madani light", serif;
+  color: white;
 }
+
+body {
+  background-image: url("background main.jpg");
+  background-size: cover;
+  background-position: top left;
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+  height: 3000px;
+}
+
+/* -----------------------------
+   FONTS
+------------------------------ */
 @font-face {
   font-family: "Enchanted Tales";
   src: url("fonts/EnchantedTales.ttf") format("truetype");
@@ -16,34 +37,201 @@ h3 {
   font-family: "Enchanted Tales", serif;
 }
 
-body {
-  margin: 0;
-  height: 3000px;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
-    "Apple Color Emoji", "Segoe UI Emoji";
-  color: #f5f5f7;
-  background-image: url("background main.jpg");
-  background-size: cover;
-  background-position: center;
-  background-attachment: scroll;
-  background-repeat: no-repeat;
+/* -----------------------------
+   SITE WRAPPER
+------------------------------ */
+.site-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.site-scale {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* full viewport height */
 }
 
 .site {
-  width: min(1920px, 100%);
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  flex: 1; /* take up remaining space */
 }
 
 .overlay {
-  backdrop-filter: brightness(0.95) saturate(1.05);
-  background: rgba(5, 8, 15, 0.25);
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* full viewport height */
 }
 
-/* Dropdown container */
+.overlay > *:not(footer) {
+  flex: 1; /* push footer to bottom */
+}
+
+/* -----------------------------
+   HEADER ICONS
+------------------------------ */
+.header-icons {
+  position: relative;
+  width: 100%;
+  height: 0;
+  pointer-events: none;
+}
+
+.icon {
+  position: absolute;
+  height: auto;
+  z-index: 1;
+}
+
+.sun-orbit-gif {
+  position: absolute;
+  top: 610px;
+  left: 35%;
+  transform: translate(-50%, -50%) scale(6.5);
+  width: 2000px;
+  height: 200px;
+  background: url("Video/Sun Orbit.gif") no-repeat center center;
+  background-size: contain;
+  z-index: 0;
+}
+
+/* Sun & Moon */
+.icon.sun {
+  position: absolute;
+  width: 2400px;
+  top: 0; /* stays exactly where you want */
+  left: -700px; /* stays exactly where you want */
+  transform-origin: center;
+  animation: pulse 2s infinite ease-in-out;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* Idle subtle pulse */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    filter: drop-shadow(0 0 15px rgba(255, 255, 200, 0.7));
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.95;
+    filter: drop-shadow(0 0 25px rgb(255, 200, 234));
+  }
+}
+
+/* Hover pulse */
+.icon.sun:hover {
+  animation: pulse-hover 1s infinite ease-in-out;
+}
+
+@keyframes pulse-hover {
+  0%,
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 15px rgba(255, 255, 228, 0.7));
+  }
+  50% {
+    transform: scale(1.2); /* small pulse */
+    filter: drop-shadow(0 0 40px rgb(255, 255, 40));
+  }
+}
+
+.icon.moon {
+  width: 800px;
+  top: 1800px;
+  right: 250px;
+  z-index: 2; /* ensure above orbit gif */
+}
+
+/* Container for extra moons */
+.moon-orbit {
+  position: absolute;
+  top: 1800px; /* same as main moon */
+  right: 250px; /* same as main moon */
+  width: 0; /* acts as origin for positioning */
+  height: 0;
+  pointer-events: none;
+  z-index: 2; /* above sun-orbit-gif but below dropdown */
+}
+
+/* Base style for extra moons */
+.moon-orbit .moon {
+  position: absolute;
+  height: 100px; /* default size, you can change */
+  width: auto;
+  transition: all 0.3s ease;
+}
+
+/* Position each moon relative to the origin */
+.moon1 {
+  top: -40px;
+  left: -310px;
+}
+
+.moon2 {
+  top: -40px;
+  right: 520px;
+}
+
+.moon3 {
+  top: 420px;
+  right: 500px;
+}
+
+.moon4 {
+  top: 420px;
+  left: -310px;
+}
+
+.moon-orbit-gif {
+  position: absolute;
+  top: 2015px; /* same Y as .icon.moon */
+  right: -20px; /* same X as .icon.moon */
+  transform: translate(-50%, -50%) scale(1.6); /* adjust scale as needed */
+  width: 800px; /* match or adjust to fit */
+  height: 800px;
+  background: url("images/MOONORBITreal.png") no-repeat center center;
+  background-size: contain;
+  z-index: 1; /* behind moon (moon has z-index: 2+) */
+}
+
+/* -----------------------------
+   HERO & MAIN TITLE
+------------------------------ */
+.main-title {
+  display: none;
+}
+
+.intro-quote {
+  font-family: "Madani light", serif;
+  max-width: 800px;
+  margin: 10px 0 0 450px;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-align: left;
+  padding: 0 20px;
+  z-index: 1;
+}
+
+/* -----------------------------
+   PROJECT WORD
+------------------------------ */
+.project-word {
+  font-family: "Enchanted Tales", cursive;
+  font-size: 60px;
+  color: rgb(231, 14, 86);
+  position: absolute;
+  top: 1700px;
+  left: 100px;
+  z-index: 10;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+/* -----------------------------
+   DROPDOWN MENU
+------------------------------ */
 .dropdown {
   position: fixed;
   top: 20px;
@@ -51,7 +239,6 @@ body {
   z-index: 999;
 }
 
-/* Button styling */
 .dropdown-btn {
   background: none;
   border: none;
@@ -69,9 +256,8 @@ body {
   transform: rotate(20deg);
 }
 
-/* Animated dropdown content */
 .dropdown-content {
-  max-height: 0; /* hidden by default */
+  max-height: 0;
   overflow: hidden;
   position: absolute;
   right: 0;
@@ -80,7 +266,7 @@ body {
   min-width: 140px;
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-  transition: max-height 0.4s ease; /* animation effect */
+  transition: max-height 0.4s ease;
 }
 
 .dropdown-content a {
@@ -96,31 +282,25 @@ body {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Show menu when active */
 .dropdown.active .dropdown-content {
-  max-height: 300px; /* large enough for menu items */
+  max-height: 300px;
 }
 
-header {
-  padding: 32px clamp(16px, 4vw, 48px);
-}
-
+/* -----------------------------
+   HERO & CARD ROW
+------------------------------ */
 .hero {
-  position: relative; /* allows absolute positioning inside */
+  position: relative;
   text-align: left;
-  padding: 60px 20px; /* space so gif doesn't get cut off */
+  padding: 20px 20px 60px;
 }
 
-.title {
-  font-size: clamp(2rem, 4vw, 4rem);
-  line-height: 1.1;
-  margin: 0 0 0.5rem;
-}
-
-.tagline {
-  font-size: clamp(1rem, 2.2vw, 1.4rem);
-  opacity: 0.92;
-  max-width: 60ch;
+.title-video-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  position: relative; /* or absolute if needed */
+  left: 180px; /* move it 20px to the right */
+  top: -50px;
 }
 
 .card-row {
@@ -139,39 +319,102 @@ header {
   backdrop-filter: blur(3px);
 }
 
-a.button {
-  display: inline-block;
-  margin-top: 1.25rem;
-  padding: 0.9rem 1.2rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  text-decoration: none;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.08);
-  transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease;
-}
-a.button:hover {
-  transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.35);
-}
-
+/* -----------------------------
+   FOOTER
+------------------------------ */
 footer {
-  padding: 2rem;
-  opacity: 0.75;
-  font-size: 0.9rem;
+  padding: 20px;
   text-align: center;
+  font-family: "Madani light", serif;
 }
 
-.title-video-wrapper {
-  position: absolute; /* place anywhere inside hero */
-  top: 90%; /* adjust position vertically */
-  left: 70%; /* adjust position horizontally */
-  transform: translate(-50%, -50%); /* perfect center */
-  z-index: -1; /* send behind the text */
+/* 📱 Mobile view (iPhone & small tablets) */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px; /* optional: adds breathing room */
+  }
+
+  .about-image,
+  .about-text {
+    flex: unset;
+    width: 100%;
+  }
+
+  .about-image img {
+    max-width: 70%; /* keeps image smaller on phones */
+    height: auto;
+    margin: 0 auto; /* centers the image */
+    display: block;
+  }
+
+  #networkCanvas {
+    display: none; /* optional: hide canvas if it looks messy on small screens */
+  }
+
+  .enchanted-title {
+    font-size: 8vw; /* scales better for mobile */
+    margin-top: 20px;
+  }
+
+  .about-description {
+    font-size: 4vw;
+    line-height: 1.6;
+    margin: 15px 0;
+  }
+
+  .about-quote {
+    font-size: 4.5vw;
+    font-style: italic;
+    margin-top: 10px;
+  }
 }
 
-.title-video {
-  width: 1500px; /* change this to resize gif */
-  height: auto;
+/* 📱 Mobile-only alignment fix */
+@media (max-width: 768px) {
+  .icon.sun {
+    top: 610px !important;
+    left: 35% !important;
+    transform: translate(-50%, -50%) !important;
+    width: clamp(160px, 60vw, 700px) !important;
+    height: auto !important;
+    animation-name: pulse-centered !important;
+  }
+
+  .icon.sun:hover {
+    animation-name: pulse-hover-centered !important;
+  }
+
+  .sun-orbit-gif {
+    top: 610px !important;
+    left: 35% !important;
+    transform: translate(-50%, -50%) scale(3.8) !important;
+  }
+
+  @keyframes pulse-centered {
+    0%,
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+      filter: drop-shadow(0 0 15px rgba(255, 255, 200, 0.7));
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.05);
+      opacity: 0.95;
+      filter: drop-shadow(0 0 25px rgb(255, 200, 234));
+    }
+  }
+
+  @keyframes pulse-hover-centered {
+    0%,
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+      filter: drop-shadow(0 0 15px rgba(255, 255, 228, 0.7));
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.2);
+      filter: drop-shadow(0 0 40px rgb(255, 255, 40));
+    }
+  }
 }
