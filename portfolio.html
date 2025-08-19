@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sunny • My Works</title>
+    <link rel="stylesheet" href="portfolio.css" />
+
+    <!-- Local title font to match your site -->
+    <style>
+      @font-face {
+        font-family: "Enchanted Tales";
+        src: url("fonts/EnchantedTales.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Madani light";
+        src: local("Madani light");
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Menu button -->
+    <div
+      class="dropdown"
+      style="position: fixed; top: 20px; right: 20px; z-index: 999"
+    >
+      <img src="images/Sun Ui.png" alt="Menu" class="menu-btn" />
+      <div class="dropdown-content">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+
+    <div class="page">
+      <!-- Fixed Left Panel -->
+      <aside class="left-panel">
+        <div class="left-inner" aria-hidden="true">
+<!-- Left panel -->
+<div class="left-panel">
+    <div class="my-projects">MY DESIGN PROJECTS</div>
+  </div>
+  
+      </aside>
+
+      <!-- Scrolling Right Panel -->
+      <main class="right-panel">
+        <ul id="cards" aria-label="Project list">
+          <!-- Card 1 -->
+          <li class="card" id="card_1">
+            <div class="card__content">
+              <div class="card__text">
+                <h2>AEIR Move — Brand Identity</h2>
+                <p>
+                  Minimal, kinetic branding for a mobile-first lifestyle label.
+                </p>
+                <p><a class="btn" href="#">View case study</a></p>
+              </div>
+              <figure class="card__media">
+                <img
+                  src="images/sunnyaodai.jpg"
+                  alt="AEIR Move brand identity preview"
+                />
+              </figure>
+            </div>
+          </li>
+
+          <!-- Card 2 -->
+          <li class="card" id="card_2">
+            <div class="card__content">
+              <div class="card__text">
+                <h2>Cosmic Motion Graphics</h2>
+                <p>Science-meets-art animations for screens and social.</p>
+                <p><a class="btn" href="#">Watch motion reel</a></p>
+              </div>
+              <figure class="card__media">
+                <img
+                  src="images/DRAFT 1 17h.png"
+                  alt="Cosmic motion graphics scene"
+                />
+              </figure>
+            </div>
+          </li>
+
+          <!-- Card 3 -->
+          <li class="card" id="card_3">
+            <div class="card__content">
+              <div class="card__text">
+                <h2>Thủ Thiêm — Street/Punk Visuals</h2>
+                <p>
+                  Graffiti-inspired identity for a youth-centric creative
+                  square.
+                </p>
+                <p><a class="btn" href="#">See visuals</a></p>
+              </div>
+              <figure class="card__media">
+                <img
+                  src="images/TetSnake.PNG"
+                  alt="Street punk visual identity mockups"
+                />
+              </figure>
+            </div>
+          </li>
+
+          <!-- Card 4 -->
+          <li class="card" id="card_4">
+            <div class="card__content">
+              <div class="card__text">
+                <h2>Nebula Series — Digital Art</h2>
+                <p>Painted starbirths and color studies of deep space.</p>
+                <p><a class="btn" href="#">Browse artworks</a></p>
+              </div>
+              <figure class="card__media">
+                <img
+                  src="images/sunnyphotoshoot.jpg"
+                  alt="Colorful nebula digital painting"
+                />
+              </figure>
+            </div>
+          </li>
+        </ul>
+
+        <footer class="site-footer">
+          © <span id="y"></span> Sunny — Cosmic Portfolio
+        </footer>
+      </main>
+    </div>
+
+    <!-- Motion One-based stacking animation -->
+    <script type="module" src="portfolio.js"></script>
+    <script>
+      // year stamp
+      document.getElementById("y").textContent = new Date().getFullYear();
+
+      // simple dropdown toggle
+      document
+        .querySelector(".menu-btn")
+        .addEventListener("click", function () {
+          document.querySelector(".dropdown").classList.toggle("active");
+        });
+    </script>
+  </body>
+</html>
