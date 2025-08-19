@@ -1,0 +1,356 @@
+/* ====== Layout vars ====== */
+:root {
+  --left-w: clamp(240px, 32vw, 520px);
+  --accent: rgb(255, 186, 73);
+  --beige: #f2e8d5;
+  --text: #c7286a; /* orange-red like your ref */
+  --card-height: 40vw;
+  --card-margin: 4vw;
+  --card-top-offset: 1em;
+  --numcards: 4;
+}
+
+/* ====== Reset ====== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  overflow-x: hidden;
+  color: #fff;
+  font-family: "Madani light", serif;
+  background: url("background main.jpg") center/cover no-repeat fixed;
+}
+
+/* ====== Page frame ====== */
+.page {
+  min-height: 100%;
+}
+
+/* Left (fixed) panel */
+.left-panel {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: var(--left-w);
+  background: transparent; /* fully transparent */
+  display: grid;
+  place-items: center;
+  z-index: 10;
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.left-inner {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.myworks {
+  font-family: "Enchanted Tales", serif;
+  color: var(--text);
+  letter-spacing: 0.04em;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-size: clamp(3rem, 8vw, 14rem);
+  line-height: 0.85;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: reveal 900ms ease-out forwards;
+  animation-delay: 750ms;
+}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .myworks {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Right (scrolling) panel */
+.right-panel {
+  margin-left: var(--left-w);
+  min-height: 100vh;
+  background: transparent; /* make right panel transparent too */
+  padding: clamp(16px, 3vw, 48px);
+}
+
+/* ====== Stacking Cards (right side) ====== */
+#cards {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(var(--numcards), var(--card-height));
+  gap: var(--card-margin);
+  padding-bottom: calc(var(--numcards) * var(--card-top-offset));
+  margin-bottom: var(--card-margin);
+  /* keep cards within right panel column width */
+  max-width: min(1200px, 100%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card {
+  position: sticky;
+  top: 0;
+  padding-top: var(--card-top-offset);
+  will-change: transform;
+}
+
+/* Card body */
+.card__content {
+  display: grid;
+  grid-template-areas: "text img";
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(10, 5, 7, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 239, 65, 0.865));
+  box-shadow: 0 0 24px rgba(255, 186, 73, 0.28);
+  transition: transform 0.3s ease;
+
+  /* Added fixed size */
+  width: 100%; /* fits container width */
+  height: 500px; /* fixed height for all cards */
+}
+.card__content:hover {
+  transform: translateY(-6px) scale(1.1);
+}
+
+.card__text {
+  grid-area: text;
+  width: 80%;
+  place-self: center;
+  display: grid;
+  gap: 0.9em;
+  text-align: left;
+}
+.card__text h2 {
+  font-family: "Enchanted Tales", serif;
+  font-size: clamp(1.4rem, 2.2vw, 2.2rem);
+  color: #fff;
+}
+.card__text p {
+  line-height: 1.55;
+  color: #eaeaea;
+}
+
+.card__media {
+  grid-area: img;
+  overflow: hidden;
+}
+.card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.05);
+  transition: filter 0.5s ease;
+}
+.card__content:hover .card__media img {
+  filter: grayscale(0%);
+}
+
+/* Button */
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #000;
+  text-decoration: none;
+  padding: 0.6em 1em;
+  border-radius: 0.4em;
+  font-weight: 700;
+  transition: box-shadow 0.25s ease, transform 0.15s ease;
+}
+.btn:hover {
+  box-shadow: 0 0 12px var(--accent);
+  transform: translateY(-1px);
+}
+
+/* Footer */
+.site-footer {
+  margin-top: 12vh;
+  padding: 24px 0 8px;
+  text-align: center;
+  color: #f0f0f0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 980px) {
+  :root {
+    --left-w: 28vw;
+  }
+  .card__content {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}
+
+@media (max-width: 760px) {
+  :root {
+    --left-w: 0px;
+  }
+  .left-panel {
+    display: none;
+  }
+  .right-panel {
+    margin-left: 0;
+  }
+  .card__content {
+    grid-template-areas:
+      "img"
+      "text";
+    grid-template-columns: 1fr;
+  }
+  #cards {
+    --card-height: 64vw;
+  }
+}
+
+/* Dropdown menu with smooth animation */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.menu-btn {
+  width: 50px; /* adjust size */
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.menu-btn:hover {
+  transform: rotate(15deg) scale(1.05);
+}
+
+.dropdown-content {
+  max-height: 0;              /* hidden by default */
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(-10px);
+  transition: max-height 0.4s ease, opacity 0.3s ease, transform 0.3s ease;
+  position: absolute;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.85); /* semi-transparent */
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Active (open state) */
+.dropdown.active .dropdown-content {
+  max-height: 500px; /* large enough for all menu links */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Card enter animation */
+.card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: opacity, transform;
+}
+
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger effect */
+.card:nth-child(1).visible {
+  transition-delay: 0.1s;
+}
+.card:nth-child(2).visible {
+  transition-delay: 0.25s;
+}
+.card:nth-child(3).visible {
+  transition-delay: 0.4s;
+}
+.card:nth-child(4).visible {
+  transition-delay: 0.55s;
+}
+
+.left-panel {
+    position: fixed;
+    top: 50%;
+    left: -20px;
+    transform: translateY(-50%);
+    width: auto; /* let it fit the rotated text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1; /* behind other content */
+  }
+  
+  .my-projects {
+    font-family: "Enchanted Tales", serif;
+    font-weight: 800;
+    font-size: clamp(3rem, 8vw, 14rem);
+    color: #fff;
+    margin: 0;
+  
+    transform: rotate(-90deg) translateY(0) translateX(-200px);
+    transform-origin: center;
+  
+    opacity: 0;
+    animation: floatInAndLoop 6s ease-out forwards;
+  }
+  
+  /* Combined entrance + floating animation */
+  @keyframes floatInAndLoop {
+    0% {
+      opacity: 0;
+      transform: rotate(-90deg) translateY(0) translateX(-200px);
+    }
+    20% {
+      opacity: 1;
+      transform: rotate(-90deg) translateY(0) translateX(0);
+    }
+    40% {
+      opacity: 1; /* keep fully visible */
+      transform: rotate(-90deg) translateY(-10px) translateX(0);
+    }
+    60% {
+      opacity: 1;
+      transform: rotate(-90deg) translateY(0px) translateX(0);
+    }
+    80% {
+      opacity: 1;
+      transform: rotate(-90deg) translateY(-10px) translateX(0);
+    }
+    100% {
+      opacity: 1;
+      transform: rotate(-90deg) translateY(0px) translateX(0);
+    }
+  }
+  
