@@ -7,78 +7,92 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="dropdown">
-      <button class="dropdown-btn">
-        <img src="images/Sun Ui.png" alt="Menu" />
-      </button>
-      <div class="dropdown-content">
-        <!-- Changed About Me to link to a new page -->
-        <a href="about.html">About Me</a>
-        <a href="#projects">Project</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
+    <div class="site-wrapper">
+      <div class="site-scale">
+        <!-- Decorative Sun & Moon -->
+        <header class="header-icons">
+          <div class="sun-wrapper">
+            <img src="images/sun.gif" alt="Sun Orbit" class="sun-orbit-gif" />
+            <img src="images/Sun.png" alt="Sun" class="icon sun" />
+          </div>
 
-    <script src="SUNMENU.js"></script>
+          <div class="moon-wrapper">
+            <div class="moon-orbit-gif"></div>
+            <img src="images/Moon.png" alt="Moon" class="icon moon" />
+          </div>
 
-    <div class="site">
-      <div class="overlay">
-        <header>
-          <strong>Sunny</strong>
+          <!-- Additional moons -->
+          <div class="moon-orbit">
+            <img src="images/moon1.png" alt="Moon 1" class="moon moon1" />
+            <img src="images/moon2.png" alt="Moon 2" class="moon moon2" />
+            <img src="images/moon3.png" alt="Moon 3" class="moon moon3" />
+            <img src="images/moon4.png" alt="Moon 4" class="moon moon4" />
+          </div>
         </header>
 
-        <section class="hero">
-          <h1 class="title">Designing with stardust.</h1>
-          <p class="tagline">
-            Graphic designer orbiting branding, illustration, and digital
-            experiences. Pixels, planets, and punchy ideas.
-          </p>
-          <a class="button" href="#work">See Work</a>
-
-          <div class="title-video-wrapper">
-            <img
-              src="Video/portfolio animation.gif"
-              alt="Cosmic animation"
-              class="title-video"
-            />
+        <!-- Dropdown Menu -->
+        <div class="dropdown">
+          <button class="dropdown-btn">
+            <img src="images/Sun Ui.png" alt="Menu" />
+          </button>
+          <div class="dropdown-content">
+            <a href="about.html">About Me</a>
+            <a href="portfolio.html">Project</a>
+            <a href="#contact">Contact</a>
           </div>
-        </section>
+        </div>
 
-        <section id="work" class="card-row">
-          <article class="card">
-            <h3>Featured Project</h3>
-            <p>
-              Brand identity that shines like a nebula—bold color systems, logo,
-              and socials.
-            </p>
-          </article>
-          <article class="card">
-            <h3>Motion & Web</h3>
-            <p>
-              Micro-interactions and motion graphics that travel at light speed.
-            </p>
-          </article>
-          <article class="card">
-            <h3>Illustration</h3>
-            <p>
-              Playful constellations of line and shape for posters and
-              packaging.
-            </p>
-          </article>
-        </section>
+        <script src="SUNMENU.js"></script>
 
-        <footer>© <span id="y"></span> Sunny — Cosmic Portfolio</footer>
+        <!-- Main Site Content -->
+        <div class="site">
+          <div class="overlay">
+            <header></header>
+
+            <section class="hero">
+              <div class="title-video-wrapper">
+                <img
+                  src="Video/portfolio animation.gif"
+                  alt="Cosmic animation"
+                  class="title-video"
+                />
+              </div>
+            </section>
+
+            <section id="work" class="card-row">
+              <section class="main-content">
+                <h1 class="main-title">Who is Sunny?</h1>
+
+                <!-- New quote text -->
+                <p class="intro-quote">
+                  I’m SUNNY, a graphic designer who treats pixels like stardust
+                  and deadlines like plot twists. My work lives somewhere
+                  between the cosmic and the everyday, where a color palette can
+                  feel like a good cup of coffee and a font choice can change
+                  the mood of an entire galaxy. I collect odd inspirations (like
+                  street signs that accidentally rhyme) and believe good design
+                  should be as memorable as a song stuck in your head. Think of
+                  me as your friendly design astronaut, ready to launch ideas
+                  into orbit, but always with both feet planted firmly in
+                  creativity.
+                </p>
+
+                <div class="project-word">Project</div>
+              </section>
+            </section>
+          </div>
+        </div>
       </div>
+
+      <script>
+        document.getElementById("y").textContent = new Date().getFullYear();
+        document
+          .querySelector(".dropdown-btn")
+          .addEventListener("click", function () {
+            document.querySelector(".dropdown").classList.toggle("active");
+          });
+      </script>
+      <script src="scale.js"></script>
     </div>
-    <script>
-      document.getElementById("y").textContent = new Date().getFullYear();
-    </script>
-    <script>
-      document
-        .querySelector(".dropdown-btn")
-        .addEventListener("click", function () {
-          document.querySelector(".dropdown").classList.toggle("active");
-        });
-    </script>
   </body>
 </html>
