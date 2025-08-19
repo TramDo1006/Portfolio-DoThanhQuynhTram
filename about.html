@@ -22,12 +22,13 @@
     </div>
 
     <div class="about-container">
-      <!-- Hình bên trái -->
+      <!-- Left image -->
       <div class="about-image">
-        <img src="images/Grid cirrcle (1).png" alt="Decorative Grid Circle" />
+        <img src="images/Grid cirrcle.png" alt="Decorative Grid Circle" />
+        <canvas id="networkCanvas"></canvas>
       </div>
 
-      <!-- Nội dung bên phải -->
+      <!-- Right text -->
       <div class="about-text">
         <h1 class="enchanted-title">ABOUT ME</h1>
         <p class="about-description">
@@ -42,13 +43,9 @@
       </div>
     </div>
 
+    <!-- Scripts -->
     <script src="SUNMENU.js"></script>
-    <script>
-      document
-        .querySelector(".dropdown-btn")
-        .addEventListener("click", function () {
-          document.querySelector(".dropdown").classList.toggle("active");
-        });
-    </script>
+    <script src="about.js"></script>
   </body>
 </html>
+
