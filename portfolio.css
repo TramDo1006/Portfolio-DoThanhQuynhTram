@@ -24,7 +24,7 @@ body {
   overflow-x: hidden;
   color: #fff;
   font-family: "Madani light", serif;
-  background: url("background main.jpg") center/cover no-repeat fixed;
+  background: url("background_main.jpg") center/cover no-repeat fixed;
 }
 
 /* ====== Page frame ====== */
@@ -122,7 +122,7 @@ body {
   overflow: hidden;
   background: rgba(10, 5, 7, 0.75);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 239, 65, 0.865));
+  border: 1px solid rgba(255, 239, 65, 0.865);
   box-shadow: 0 0 24px rgba(255, 186, 73, 0.28);
   transition: transform 0.3s ease;
 

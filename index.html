@@ -5,6 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Sunny • Cosmic Portfolio</title>
     <link rel="stylesheet" href="styles.css" />
+    <style>
+      @font-face {
+        font-family: "Enchanted Tales";
+        src: url("font/enchanted_tales.otf") format("opentype");
+      }
+
+      @font-face {
+        font-family: "Avenir Light";
+        src: url("font/avenir_light.ttf") format("truetype");
+      }
+
+      .intro-quote {
+        font-family: "Avenir Light", sans-serif;
+        font-weight: 300;
+        font-size: clamp(16px, 2vw, 20px);;
+        line-height: 1.6;
+        color: #f5f5f7;
+      }
+
+      .project-word {
+        font-family: "Enchanted Tales", cursive;
+        font-size: clamp(24px, 4vw, 48px);
+      }
+    </style>
   </head>
   <body>
     <div class="site-wrapper">
@@ -49,15 +73,33 @@
           <div class="overlay">
             <header></header>
 
+<!--            <section class="hero">-->
+<!--              <div class="title-video-wrapper">-->
+<!--                <img-->
+<!--                  src="Video/portfolio animation.gif"-->
+<!--                  alt="Cosmic animation"-->
+<!--                  class="title-video"-->
+<!--                />-->
+<!--              </div>-->
+<!--            </section>-->
             <section class="hero">
-              <div class="title-video-wrapper">
-                <img
-                  src="Video/portfolio animation.gif"
-                  alt="Cosmic animation"
-                  class="title-video"
-                />
-              </div>
+              <div class="title-video-wrapper"></div>
             </section>
+
+            <style>
+              .hero {
+                width: 100%;
+                min-height: 1000px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              }
+
+              .title-video-wrapper {
+                width: 100%;
+                height: 100%;
+              }
+            </style>
 
             <section id="work" class="card-row">
               <section class="main-content">

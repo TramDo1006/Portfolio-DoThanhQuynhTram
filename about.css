@@ -1,21 +1,21 @@
 /* Fonts */
 @font-face {
   font-family: "Enchanted Tales";
-  src: url("font/Enchanted Tales.ttf") format("truetype");
+  src: url("font/enchanted_tales.otf") format("truetype");
 }
 
 @font-face {
   font-family: "Madani";
-  src: url("font/Madani.ttf") format("truetype");
+  src: url("font/avenir_light.ttf") format("truetype");
 }
 
 /* Background & base styles */
 body {
   margin: 0;
   color: #f5f5f7;
-  background-image: url("background main.jpg");
+  background-image: url("background_main.jpg");
   background-size: cover;
-  background-position: top-left;
+  background-position: top left;
   background-repeat: no-repeat;
   font-family: "Madani", sans-serif;
   font-weight: 300; /* Light mặc định */
@@ -66,7 +66,7 @@ body {
   position: absolute;
   pointer-events: none;
   font-size: 24px;
-  font-weight: regular;
+  font-weight: normal;
   white-space: nowrap;
   animation: fadeInOut 0.6s ease-in-out;
 
@@ -74,7 +74,7 @@ body {
   color: #ffffff; /* warm star-like color */
 
   text-shadow: 0 0 6px #ffe9a8, 0 0 12px #ffd966, 0 0 20px hsl(326, 100%, 76%),
-    0 0 35px #ff016f;
+  0 0 35px #ff016f;
 }
 
 @keyframes fadeInOut {
@@ -100,6 +100,135 @@ body {
 .about-text {
   flex: 1.3;
   max-width: 400px;
+}
+
+/* STUDIES section */
+/* STUDIES section */
+.studies-section {
+  margin: 100px auto;
+  max-width: 1000px;
+  padding: 0 40px;
+  color: #fff;
+
+  /* 👇 Add these to shift left */
+  position: relative;
+  left: -140px; /* adjust this value to shift left/right */
+}
+
+.studies-text h2 {
+  font-family: "Enchanted Tales", serif;
+  font-size: 60px;
+  color: rgb(231, 14, 86); /* pink cosmic accent */
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+.timeline {
+  position: relative;
+  margin-left: 20px;
+  padding-left: 20px;
+  border-left: 2px solid rgb(231, 14, 86);
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.timeline-dot {
+  width: 14px;
+  height: 14px;
+  background-color: rgb(231, 14, 86);
+  border-radius: 50%;
+  position: absolute;
+  left: -28px;
+  top: 6px;
+}
+
+.timeline-content {
+  margin-left: 20px;
+}
+
+.timeline-title {
+  font-family: "Madani Light", sans-serif;
+  font-size: 22px;
+  font-weight: bold;
+  color: rgb(231, 14, 86);
+  margin-bottom: 10px;
+}
+
+.timeline-desc {
+  font-family: "Madani Light", sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #f2f2f2;
+  max-width: 650px;
+}
+
+/* EXPERIENCES section */
+.experiences-section {
+  margin: 120px auto;
+  max-width: 1000px;
+  padding: 0 40px;
+  color: #fff;
+
+  /* 👇 shifted more to the right */
+  position: relative;
+  left: 420px; /* adjust this value until you like the position */
+}
+
+.experiences-text h2 {
+  font-family: "Enchanted Tales", serif;
+  font-size: 60px;
+  color: rgb(231, 14, 86);
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+.experiences-section .timeline {
+  position: relative;
+  margin-left: 20px;
+  padding-left: 20px;
+  border-left: 2px solid rgb(231, 14, 86);
+}
+
+.experiences-section .timeline-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.experiences-section .timeline-dot {
+  width: 14px;
+  height: 14px;
+  background-color: rgb(231, 14, 86);
+  border-radius: 50%;
+  position: absolute;
+  left: -28px;
+  top: 6px;
+}
+
+.experiences-section .timeline-content {
+  margin-left: 20px;
+}
+
+.experiences-section .timeline-title {
+  font-family: "Madani Light", sans-serif;
+  font-size: 22px;
+  font-weight: bold;
+  color: rgb(231, 14, 86);
+  margin-bottom: 10px;
+}
+
+.experiences-section .timeline-desc {
+  font-family: "Madani Light", sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #f2f2f2;
+  max-width: 650px;
 }
 
 .enchanted-title {
