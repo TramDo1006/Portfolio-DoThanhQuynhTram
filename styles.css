@@ -12,7 +12,7 @@ body {
 }
 
 body {
-  background-image: url("background main.jpg");
+  background-image: url("background_main.jpg");
   background-size: cover;
   background-position: top left;
   background-attachment: scroll;
@@ -81,63 +81,45 @@ h3 {
   z-index: 1;
 }
 
-.sun-orbit-gif {
-  position: absolute;
-  top: 610px;
-  left: 35%;
-  transform: translate(-50%, -50%) scale(6.5);
-  width: 2000px;
-  height: 200px;
-  background: url("Video/Sun Orbit.gif") no-repeat center center;
-  background-size: contain;
-  z-index: 0;
+.video-wrapper {
+  position: relative;   /* stays inside its container */
+  width: 100%;
+  height: 300px;        /* adjust height to match old GIF */
+  overflow: hidden;
 }
+
+.bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;    /* fills the container */
+  display: block;
+    mix-blend-mode: lighten; /* or overlay, screen, soft-light */
+}
+
 
 /* Sun & Moon */
-.icon.sun {
-  position: absolute;
-  width: 2400px;
-  top: 0; /* stays exactly where you want */
-  left: -700px; /* stays exactly where you want */
-  transform-origin: center;
-  animation: pulse 2s infinite ease-in-out;
-  cursor: pointer;
-  z-index: 10;
-}
 
-/* Idle subtle pulse */
-@keyframes pulse {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 1;
-    filter: drop-shadow(0 0 15px rgba(255, 255, 200, 0.7));
-  }
-  50% {
-    transform: scale(1.05);
-    opacity: 0.95;
-    filter: drop-shadow(0 0 25px rgb(255, 200, 234));
-  }
-}
-
-/* Hover pulse */
-.icon.sun:hover {
-  animation: pulse-hover 1s infinite ease-in-out;
-}
-
-@keyframes pulse-hover {
-  0%,
-  100% {
-    transform: scale(1);
-    filter: drop-shadow(0 0 15px rgba(255, 255, 228, 0.7));
-  }
-  50% {
-    transform: scale(1.2); /* small pulse */
-    filter: drop-shadow(0 0 40px rgb(255, 255, 40));
-  }
-}
 
 .icon.moon {
+  .icon.moon {
+  position: fixed; /* stays in the same spot when scrolling */
+  width: 200px;    /* adjust size as needed */
+  top: 150px;      /* distance from top of viewport */
+  right: 50px;     /* distance from right edge */
+  z-index: 2;
+}
+
+.moon-orbit-gif {
+  position: absolute; /* also fixed so it doesn’t scroll */
+  top: 150px;
+  right: 50px;
+  width: 400px;    /* adjust size to match orbit */
+  height: 400px;
+  background: url("images/MOONORBITreal.png") no-repeat center center;
+  background-size: contain;
+  z-index: 1;       /* behind the moon */
+}
+
   width: 800px;
   top: 1800px;
   right: 250px;
@@ -160,8 +142,10 @@ h3 {
   position: absolute;
   height: 100px; /* default size, you can change */
   width: auto;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease; 
 }
+
+
 
 /* Position each moon relative to the origin */
 .moon1 {
@@ -185,16 +169,19 @@ h3 {
 }
 
 .moon-orbit-gif {
-  position: absolute;
-  top: 2015px; /* same Y as .icon.moon */
-  right: -20px; /* same X as .icon.moon */
-  transform: translate(-50%, -50%) scale(1.6); /* adjust scale as needed */
-  width: 800px; /* match or adjust to fit */
+  position: absolute; /* also fixed so it doesn’t scroll */
+  top: 2015px;
+  right: -20px;
+  transform: translate(-50%, -50%) scale(1.6);
+  width: 800px;
   height: 800px;
   background: url("images/MOONORBITreal.png") no-repeat center center;
   background-size: contain;
-  z-index: 1; /* behind moon (moon has z-index: 2+) */
+  z-index: 1;
 }
+
+
+
 
 /* -----------------------------
    HERO & MAIN TITLE
@@ -209,7 +196,7 @@ h3 {
   color: #fff;
   font-family: "Madani light", serif;
   max-width: 800px;
-  margin: 10px 0 0 450px;
+  margin: 800px 0 0 450px;
   font-size: 1.2rem;
   line-height: 1.6;
   text-align: left;
@@ -255,23 +242,23 @@ h3 {
   }
 }
 
-/* -----------------------------
-   PROJECT WORD
------------------------------- */
 .project-word {
   font-family: "Enchanted Tales", cursive;
   font-size: 60px;
   color: rgb(231, 14, 86);
   position: relative;
-  top: 60px;
+  top: 200px;
   left: 100px;
   z-index: 10;
-  pointer-events: none;
+  pointer-events: auto; /* enable hover */
+  animation: explodeIn 3.5s ease-out forwards; /* initial explode animation */
   transition: all 0.3s ease;
+  transform-origin: center; /* smooth scaling */
 }
 
-.project-word.explode-in {
-  animation: explodeIn 3.5s ease-out forwards;
+/* Hover pulse/glow */
+.project-word:hover {
+  animation: explodeIn 0s forwards, pulseGlow 2s ease-in-out infinite alternate; /* smoother, longer duration */
 }
 
 @keyframes explodeIn {
@@ -286,6 +273,30 @@ h3 {
     filter: blur(0);
   }
 }
+
+@keyframes pulseGlow {
+  0% {
+    text-shadow: 0 0 8px rgb(231, 14, 86),
+                 0 0 15px rgb(255, 100, 150),
+                 0 0 25px rgb(231, 14, 86);
+    transform: scale(1);
+  }
+  50% {
+    text-shadow: 0 0 15px rgb(231, 14, 86),
+                 0 0 30px rgb(255, 100, 150),
+                 0 0 45px rgb(231, 14, 86);
+    transform: scale(1.07);
+  }
+  100% {
+    text-shadow: 0 0 8px rgb(231, 14, 86),
+                 0 0 15px rgb(255, 100, 150),
+                 0 0 25px rgb(231, 14, 86);
+    transform: scale(1);
+  }
+}
+
+
+
 
 /* -----------------------------
    DROPDOWN MENU
@@ -694,5 +705,95 @@ footer {
     width: 150px;
     line-height: 150px;
     font-size: clamp(3em, 8vw, 8em);
+  }
+}
+
+/* -----------------------------
+   Moon Container & Interactive Moon
+------------------------------ */
+.moon-container {
+  position: relative; /* keeps everything inside Moon.png */
+  display: inline-block; /* fits the Moon image */
+}
+
+/* Interactive moon inside the main Moon */
+.interactive-moon {
+  position: absolute;
+  top: 180px;  /* center inside main Moon */
+  left: -450px;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  z-index: 5;
+  pointer-events: auto;
+}
+
+/* Glowing core */
+.moon-core {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fffacd 0%, #ffea70 70%, #e6d800 100%);
+  box-shadow: 0 0 20px #fffacd, 0 0 40px #ffea70, 0 0 60px #e6d800;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.moon-core:hover {
+  transform: scale(1.3);
+  box-shadow: 0 0 40px #fffacd, 0 0 80px #ffea70, 0 0 120px #e6d800;
+}
+
+/* -----------------------------
+   Project Cards
+------------------------------ */
+.project-card {
+  position: absolute;
+  top: 120px; /* distance below moon, adjust as needed */
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  width: 220px;
+  padding: 15px;
+  background: rgba(20, 24, 33, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  text-align: center;
+  color: #fff;
+  font-family: "Madani light", serif;
+  opacity: 0;
+  pointer-events: none;
+}
+.project-card img {
+  width: 100%;       /* image fills the card width */
+  height: auto;      /* keeps aspect ratio */
+  border-radius: 10px; /* optional: rounded corners */
+  object-fit: cover;  /* crop if necessary to fill nicely */
+  margin-bottom: 10px; /* spacing from text */
+}
+
+/* Cards stagger fade-in on hover */
+.moon-container:hover .project-card {
+  animation: fadeInOut 10s ease-in-out infinite;
+}
+
+.moon-container:hover .project-card:nth-of-type(1) {
+  animation-delay: 0s;
+}
+.moon-container:hover .project-card:nth-of-type(2) {
+  animation-delay: 3.0s;
+}
+.moon-container:hover .project-card:nth-of-type(3) {
+  animation-delay: 6s;
+}
+
+/* Keyframes for looping fade in/out */
+@keyframes fadeInOut {
+  0%, 25%, 100% { 
+    opacity: 0; 
+    transform: translateX(-50%) translateY(20px); 
+  }
+  10%, 20% { 
+    opacity: 1; 
+    transform: translateX(-50%) translateY(0); 
   }
 }
