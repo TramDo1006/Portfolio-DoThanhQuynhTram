@@ -5,30 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Sunny • Cosmic Portfolio</title>
     <link rel="stylesheet" href="styles.css" />
-    <style>
-      @font-face {
-        font-family: "Enchanted Tales";
-        src: url("font/enchanted_tales.otf") format("opentype");
-      }
-
-      @font-face {
-        font-family: "Avenir Light";
-        src: url("font/avenir_light.ttf") format("truetype");
-      }
-
-      .intro-quote {
-        font-family: "Avenir Light", sans-serif;
-        font-weight: 300;
-        font-size: clamp(16px, 2vw, 20px);;
-        line-height: 1.6;
-        color: #f5f5f7;
-      }
-
-      .project-word {
-        font-family: "Enchanted Tales", cursive;
-        font-size: clamp(24px, 4vw, 48px);
-      }
-    </style>
   </head>
   <body>
     <div class="site-wrapper">
@@ -73,33 +49,15 @@
           <div class="overlay">
             <header></header>
 
-<!--            <section class="hero">-->
-<!--              <div class="title-video-wrapper">-->
-<!--                <img-->
-<!--                  src="Video/portfolio animation.gif"-->
-<!--                  alt="Cosmic animation"-->
-<!--                  class="title-video"-->
-<!--                />-->
-<!--              </div>-->
-<!--            </section>-->
             <section class="hero">
-              <div class="title-video-wrapper"></div>
+              <div class="title-video-wrapper">
+                <img
+                  src="Video/portfolio animation.gif"
+                  alt="Cosmic animation"
+                  class="title-video"
+                />
+              </div>
             </section>
-
-            <style>
-              .hero {
-                width: 100%;
-                min-height: 1000px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-              }
-
-              .title-video-wrapper {
-                width: 100%;
-                height: 100%;
-              }
-            </style>
 
             <section id="work" class="card-row">
               <section class="main-content">
@@ -135,6 +93,85 @@
           });
       </script>
       <script src="scale.js"></script>
+      <script src="introquote.js"></script>
     </div>
+    <!-- 3D Carousel Wrapper -->
+    <div id="carousel-wrapper">
+      <div id="shape">
+        <div class="plane p1">
+          Pixels orbit like planets, stories shine like stars.
+        </div>
+        <div class="plane p2">Design</div>
+        <div class="plane p3">
+          Where imagination meets the edges of the universe.
+        </div>
+        <div class="plane p4">Innovation</div>
+        <div class="plane p5">Explore the constellations of my work.</div>
+        <div class="plane p6">
+          I navigate creative black holes to find the light.
+        </div>
+        <div class="plane p7">Branding</div>
+        <div class="plane p8">
+          Curiosity is my spaceship, creativity my fuel.
+        </div>
+        <div class="plane p9">Thinking</div>
+      </div>
+    </div>
+
+    <!-- === FOOTER START === -->
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- Site Map -->
+        <div class="footer-column">
+          <h3>Site Map</h3>
+          <ul>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="portfolio.html">My Project</a></li>
+            <li><a href="#contact">Personal Contact</a></li>
+            <li><a href="#blog">Blog</a></li>
+          </ul>
+        </div>
+
+        <!-- Where to Find Me -->
+        <div class="footer-column">
+          <h3>Find Me</h3>
+          <ul>
+            <li><span>1600 Pennsylvania Avenue Washington, D.C</span></li>
+            <li>
+              <a href="mailto:yourname@email.com">s4144325@rmit.edu.vn</a>
+            </li>
+            <li><a href="tel:+84123456789">+84 674136420</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="footer-column">
+          <h3>Contact Me</h3>
+          <form class="contact-form">
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <input type="tel" placeholder="Your Phone" />
+            <textarea placeholder="Your Message" rows="3"></textarea>
+            <button type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Bottom strip -->
+      <div class="footer-bottom">
+        <p>© 2025 SUNNY. All Left and Rights Reserved.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </footer>
+    <!-- === FOOTER END === -->
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="carousel.js"></script>
+    <script src="projectword.js"></script>
   </body>
 </html>
