@@ -24,7 +24,7 @@ body {
   overflow-x: hidden;
   color: #fff;
   font-family: "Madani light", serif;
-  background: url("background_main.jpg") center/cover no-repeat fixed;
+  background: url("background main.jpg") center/cover no-repeat fixed;
 }
 
 /* ====== Page frame ====== */
@@ -51,6 +51,7 @@ body {
   place-items: center;
 }
 
+
 .myworks {
   font-family: "Enchanted Tales", serif;
   color: var(--text);
@@ -64,6 +65,78 @@ body {
   animation: reveal 900ms ease-out forwards;
   animation-delay: 750ms;
 }
+
+/* === Block Reveal Effect === */
+.block-effect {
+  font-family: "Enchanted Tales", serif;
+  font-size: clamp(2rem, 6vw, 10rem);
+  letter-spacing: 0.04em;
+  color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+/* Text reveal with cosmic gradient */
+.block-reveal {
+  --t: calc(var(--td, 1s) + var(--d, 0s));
+  position: relative;
+  color: transparent;
+  padding: 4px;
+  overflow: hidden;
+  animation: textAppear 1.5s var(--t) forwards;
+}
+
+.block-reveal::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    #ffbdde,
+    #98174b,
+    #1c1e3a,
+    #fff9d4,
+    #9d0855
+  );
+  background-size: 300% 300%;
+  animation: revealingIn 1.5s var(--d) forwards,
+             revealingOut 1.5s var(--t) forwards,
+             gradientShift 3s ease infinite;
+}
+
+@keyframes revealingIn {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+@keyframes revealingOut {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes textAppear {
+  0% { color: transparent; }
+  100% { color: #fff; }
+}
+
+/* Gradient movement */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+/* When reveal finishes, start your existing float animation */
+.my-projects.seen {
+  animation: floatInAndLoop 6s ease-out forwards;
+}
+
 
 @keyframes reveal {
   to {
@@ -81,6 +154,8 @@ body {
   }
 }
 
+
+
 /* Right (scrolling) panel */
 .right-panel {
   margin-left: var(--left-w);
@@ -88,6 +163,16 @@ body {
   background: transparent; /* make right panel transparent too */
   padding: clamp(16px, 3vw, 48px);
 }
+
+#right-panel {
+  perspective: 1200px; /* Adjust depth */
+}
+.card {
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  will-change: transform;
+}
+
 
 /* ====== Stacking Cards (right side) ====== */
 #cards {
@@ -122,7 +207,7 @@ body {
   overflow: hidden;
   background: rgba(10, 5, 7, 0.75);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 239, 65, 0.865);
+  border: 1px solid rgba(255, 226, 153, 0.865));
   box-shadow: 0 0 24px rgba(255, 186, 73, 0.28);
   transition: transform 0.3s ease;
 
@@ -130,9 +215,44 @@ body {
   width: 100%; /* fits container width */
   height: 500px; /* fixed height for all cards */
 }
-.card__content:hover {
-  transform: translateY(-6px) scale(1.1);
+
+/* Enhanced starry glow effect */
+.card__content {
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: visible; /* allow pseudo-elements to show outside */
 }
+
+.card__content:hover {
+  transform: translateY(-6px) scale(1.05) rotateX(15deg) rotateY(-15deg);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 
+              0 0 60px rgba(255, 186, 73, 0.4), 
+              0 0 90px rgba(205, 31, 135, 0.326);
+}
+
+/* Star particles using one pseudo-element with multiple shadows */
+.card__content::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 2px; height: 2px;
+  border-radius: 50%;
+  background: white;
+  pointer-events: none;
+  opacity: 0;
+  box-shadow: 
+    10px 20px 2px white, 50px 40px 3px #fff, 80px 70px 2px #fff,
+    120px 20px 3px #fff, 150px 60px 2px #fff, 200px 40px 2px #fff,
+    220px 80px 3px #fff, 270px 30px 2px #fff, 300px 60px 3px #fff;
+  animation: sparkleStars 1.8s infinite;
+}
+
+/* Random flicker animation */
+@keyframes sparkleStars {
+  0%, 100% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
 
 .card__text {
   grid-area: text;
@@ -171,6 +291,7 @@ body {
 .btn {
   display: inline-block;
   background: var(--accent);
+  background: linear-gradient(45deg, #ffdce4, #d80a85);
   color: #000;
   text-decoration: none;
   padding: 0.6em 1em;
@@ -315,7 +436,7 @@ body {
   .my-projects {
     font-family: "Enchanted Tales", serif;
     font-weight: 800;
-    font-size: clamp(3rem, 8vw, 14rem);
+    font-size: clamp(2rem, 6vw, 10rem); /* smaller than before */
     color: #fff;
     margin: 0;
   
@@ -354,3 +475,128 @@ body {
     }
   }
   
+/* Floating Cosmic Button */
+.floating-btn {
+  position: fixed;
+  top: 120px;
+  left: 150px; /* top-left corner */
+  z-index: 9999;
+}
+
+#cosmicBtn {
+  background: radial-gradient(circle at center, #000000, #000000);
+  border: none;
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+  cursor: pointer;
+
+  box-shadow: 0 0 15px rgba(255, 200, 255, 0.6),
+              0 0 30px rgba(255, 100, 200, 0.4);
+
+  animation: floatPlanet 4s ease-in-out infinite,
+             glowPulse 6s ease-in-out infinite;
+  transition: transform 0.3s;
+}
+
+#cosmicBtn:hover {
+  transform: scale(1.25);
+  box-shadow: 0 0 20px rgba(255, 235, 208, 0.9),
+              0 0 40px rgba(255, 211, 241, 0.6);
+}
+
+/* Floating effect */
+@keyframes floatPlanet {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Glow pulsing */
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 20px rgba(255, 220, 100, 0.4),
+                0 0 50px rgba(255, 150, 60, 0.2);
+    filter: brightness(1);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(255, 220, 120, 0.8),
+                0 0 80px rgba(255, 150, 80, 0.5);
+    filter: brightness(1.75);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(255, 220, 100, 0.4),
+                0 0 50px rgba(255, 150, 60, 0.2);
+    filter: brightness(1);
+  }
+}
+
+/* Orbiting dropdown menu */
+#dropdownMenu {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+#dropdownMenu a {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 14px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  transition: opacity 0.6s ease,
+              transform 0.6s ease,
+              box-shadow 0.3s,
+              background 0.3s;
+}
+
+/* Active state */
+#dropdownMenu.active {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: auto;
+}
+
+#dropdownMenu.active a {
+  opacity: 1;
+  animation: orbit 6s linear infinite;
+}
+
+/* Hover glow */
+#dropdownMenu a:hover {
+  background: rgba(255, 200, 255, 0.2);
+  box-shadow: 0 0 20px rgba(255, 180, 255, 0.8),
+              0 0 35px rgba(255, 150, 200, 0.5);
+  transform: scale(1.15);
+}
+
+/* Balanced orbit positions (3 items by default) */
+#dropdownMenu a:nth-child(1) {
+  transform: rotate(0deg) translateX(140px) rotate(0deg);
+}
+#dropdownMenu a:nth-child(2) {
+  transform: rotate(120deg) translateX(140px) rotate(-120deg);
+}
+#dropdownMenu a:nth-child(3) {
+  transform: rotate(240deg) translateX(140px) rotate(-240deg);
+}
+
+/* Orbit animation */
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(140px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(140px) rotate(-360deg); }
+}
+
