@@ -43,10 +43,14 @@
       </div>
     </div>
 
+    <!-- STUDIES section -->
     <section class="studies-section">
       <div class="studies-text">
         <h2>STUDIES</h2>
         <div class="timeline">
+          <!-- Timeline vertical line -->
+          <div class="timeline-line"></div>
+
           <!-- First entry -->
           <div class="timeline-item">
             <div class="timeline-dot"></div>
@@ -84,17 +88,38 @@
               </p>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+          <div class="planet-wrapper">
+            <div class="planet"></div>
+            <div class="moon"></div>
+            <div class="study-card">
+              <h3>Fun Fact #1</h3>
+              <p>
+My GPA for both UAH and RMIT is 4.0 for 4 consecutive sememster, and I was nominated for a 700 million VND scholarship to study in Australia.
+              </p>
+          </div>          
+          </div>
+        </section>
 
     <!-- EXPERIENCES section -->
     <section class="experiences-section">
+      
+      <div class="experience-planet-wrapper">
+        <div class="experience-planet"></div>
+        <div class="experience-moon"></div>
+        <div class="experience-card">
+          <h3>Fun Fact #2</h3>
+          <p>The 2025 Lunar New Year snake spirit animal at Nguyen Hue walking street was design by me while working with TA Architecture.</p>
+        </div>
+      </div>
+
       <div class="experiences-text">
         <h2>EXPERIENCES</h2>
       </div>
 
       <div class="timeline">
+        <!-- Timeline vertical line -->
+        <div class="timeline-line"></div>
+
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
@@ -198,6 +223,26 @@
     <!-- Scripts -->
     <script src="SUNMENU.js"></script>
     <script src="about.js"></script>
+    <script>
+      const planet = document.querySelector(".planet");
+      const studyCard = document.querySelector(".study-card");
+    
+      planet.addEventListener("click", () => {
+        studyCard.classList.toggle("active");
+      });
+    </script>
+
+<script>
+  const expPlanet = document.querySelector(".experience-planet");
+  const expCard = document.querySelector(".experience-card");
+
+  expPlanet.addEventListener("click", () => {
+    expCard.classList.toggle("active");
+  });
+</script>
+
+
   </body>
 </html>
+
 
