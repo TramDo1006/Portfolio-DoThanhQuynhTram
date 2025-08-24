@@ -153,3 +153,55 @@ circleImage.addEventListener("mouseleave", () => {
   document.querySelectorAll(".word-container").forEach((el) => el.remove());
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 });
+
+// === STEP-BY-STEP TIMELINE PROGRESS ===
+const timelines = document.querySelectorAll(".timeline");
+
+timelines.forEach((tl) => {
+  const line = tl.querySelector(".timeline-line");
+  const items = Array.from(tl.querySelectorAll(".timeline-item"));
+  let maxHeight = 0; // track last grown height
+
+  // Intersection Observer for items
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const item = entry.target;
+        if (entry.isIntersecting) {
+          item.classList.add("show"); // reveal dot + text
+          growLine(item); // grow line to this new dot
+        }
+      });
+    },
+    {
+      threshold: 0.5, // visible when half of item is seen
+      root: null,
+      rootMargin: "0px 0px -10% 0px",
+    }
+  );
+
+  items.forEach((item) => observer.observe(item));
+
+  function growLine(item) {
+    const dot = item.querySelector(".timeline-dot");
+    if (!dot) return;
+
+    // Calculate dot's vertical center relative to .timeline
+    const y = dot.offsetTop + dot.offsetHeight / 2;
+
+    // Only extend further down (never shrink)
+    if (y > maxHeight) {
+      maxHeight = y;
+      line.style.height = maxHeight + "px";
+    }
+  }
+
+  // Reset on resize
+  window.addEventListener("resize", () => {
+    maxHeight = 0;
+    line.style.height = "0px";
+    items.forEach((i) => {
+      if (i.classList.contains("show")) growLine(i);
+    });
+  });
+});
