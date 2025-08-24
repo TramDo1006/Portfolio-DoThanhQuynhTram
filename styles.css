@@ -12,7 +12,7 @@ body {
 }
 
 body {
-  background-image: url("background_main.jpg");
+  background-image: url("background main.jpg");
   background-size: cover;
   background-position: top left;
   background-attachment: scroll;
@@ -25,7 +25,7 @@ body {
 ------------------------------ */
 @font-face {
   font-family: "Enchanted Tales";
-  src: url("font/enchanted_tales.otf") format("truetype");
+  src: url("fonts/EnchantedTales.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -203,7 +203,10 @@ h3 {
   display: none;
 }
 
+/* Cosmic glow for the text */
 .intro-quote {
+  position: relative;
+  color: #fff;
   font-family: "Madani light", serif;
   max-width: 800px;
   margin: 10px 0 0 450px;
@@ -212,6 +215,44 @@ h3 {
   text-align: left;
   padding: 0 20px;
   z-index: 1;
+  text-shadow: 0 0 5px #fff, 0 0 10px #d3c0ff, 0 0 20px rgb(231, 14, 86);
+  animation: glowPulse 2s infinite ease-in-out;
+  overflow: hidden;
+}
+
+/* Glow pulse animation */
+@keyframes glowPulse {
+  0%,
+  100% {
+    text-shadow: 0 0 5px #919191, 0 0 10px #fcffbe, 0 0 20px #ffcf66;
+  }
+  50% {
+    text-shadow: 0 0 15px #fff, 0 0 25px #ff4473, 0 0 35px #54005c57;
+  }
+}
+
+/* Sparkle dust overlay */
+.intro-quote::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: url("images/stars.png") repeat; /* small transparent star dots */
+  mix-blend-mode: screen;
+  animation: driftStars 20s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes driftStars {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 1000px 500px;
+  }
 }
 
 /* -----------------------------
@@ -221,12 +262,29 @@ h3 {
   font-family: "Enchanted Tales", cursive;
   font-size: 60px;
   color: rgb(231, 14, 86);
-  position: absolute;
-  top: 1700px;
+  position: relative;
+  top: 60px;
   left: 100px;
   z-index: 10;
   pointer-events: none;
   transition: all 0.3s ease;
+}
+
+.project-word.explode-in {
+  animation: explodeIn 3.5s ease-out forwards;
+}
+
+@keyframes explodeIn {
+  0% {
+    opacity: 0;
+    transform: scale(2) translateY(-100px);
+    filter: blur(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
 }
 
 /* -----------------------------
@@ -416,5 +474,225 @@ footer {
       transform: translate(-50%, -50%) scale(1.2);
       filter: drop-shadow(0 0 40px rgb(255, 255, 40));
     }
+  }
+}
+
+/* === FOOTER STYLES === */
+.footer {
+  margin-top: 100px;
+  padding: 60px 20px 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(60, 30, 44, 0.5),
+    rgba(10, 10, 30, 0.5)
+  );
+  backdrop-filter: blur(8px);
+  color: #f5f5f7;
+  font-family: "Madani Light", sans-serif;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-column h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #fff;
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 5px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px;
+}
+
+.footer-column ul li a,
+.footer-column ul li span {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+  color: #fff;
+}
+
+/* Contact Form */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: none;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 14px;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #bbb;
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #7f5af0, #2cb67d);
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.contact-form button:hover {
+  transform: scale(1.05);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.social-icons a {
+  margin-left: 15px;
+  color: #ccc;
+  font-size: 18px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+  color: #fff;
+  transform: scale(1.2);
+}
+
+/* Carousel wrapper with perspective */
+#carousel-wrapper {
+  width: 600px;
+  margin: 0px auto 370px auto;
+  perspective: 800px;
+  perspective-origin: 50% 90px;
+  transition: perspective-origin 1s ease; /* smooth tilt */
+}
+
+/* Tilt on hover smoothly */
+#carousel-wrapper:hover {
+  perspective-origin: 50% -250px;
+}
+
+/* 3D spinning shape */
+#shape {
+  margin: 0 auto;
+  height: 300px;
+  width: 300px;
+  transform-style: preserve-3d;
+  animation: spin 16s infinite linear;
+}
+
+/* Individual planes */
+.plane {
+  position: absolute;
+  height: 300px;
+  width: 200px;
+  background-color: rgba(0, 0, 0, 0);
+  text-align: center;
+  font-size: clamp(4em, 10vw, 10em);
+  color: white;
+  line-height: 200px;
+  transform-origin: center center;
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+/* Text inside planes */
+.plane {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  font-family: "Madani Light", serif;
+  font-size: 64px;
+  text-align: center;
+  white-space: nowrap; /* text can extend outside */
+  overflow: visible; /* allow text to overflow the plane */
+  color: white;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.6),
+    0 0 10px rgba(255, 255, 255, 0.5), 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+/* Position planes in 3D space */
+#shape > .p1 {
+  transform: translateZ(250px);
+}
+#shape > .p2 {
+  transform: rotateY(45deg) translateZ(250px);
+}
+#shape > .p3 {
+  transform: rotateY(90deg) translateZ(250px);
+}
+#shape > .p4 {
+  transform: rotateY(135deg) translateZ(250px);
+}
+#shape > .p5 {
+  transform: rotateY(180deg) translateZ(250px);
+}
+#shape > .p6 {
+  transform: rotateY(225deg) translateZ(250px);
+}
+#shape > .p7 {
+  transform: rotateY(270deg) translateZ(250px);
+}
+#shape > .p8 {
+  transform: rotateY(315deg) translateZ(250px);
+}
+#shape > .p9 {
+  transform: rotateY(360deg) translateZ(250px);
+}
+
+/* Spin animation */
+@keyframes spin {
+  from {
+    transform: rotateY(0);
+  }
+  to {
+    transform: rotateY(-360deg);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #carousel-wrapper {
+    width: 90%;
+  }
+  #shape {
+    height: 150px;
+    width: 150px;
+  }
+  .plane {
+    height: 150px;
+    width: 150px;
+    line-height: 150px;
+    font-size: clamp(3em, 8vw, 8em);
   }
 }
