@@ -10,7 +10,7 @@
     <style>
       @font-face {
         font-family: "Enchanted Tales";
-        src: url("font/enchanted_tales.otf") format("truetype");
+        src: url("fonts/EnchantedTales.ttf") format("truetype");
         font-weight: normal;
         font-style: normal;
         font-display: swap;
@@ -34,17 +34,31 @@
       <div class="dropdown-content">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="portfolio.html">Portfolio</a>
+        <a href="portfolio.html">Project</a>
         <a href="contact.html">Contact</a>
+      </div>
+    </div>
+
+    <!-- Floating cosmic button with dropdown -->
+    <div class="floating-btn">
+      <button id="cosmicBtn">Other Project</button>
+      <div id="dropdownMenu" class="dropdown-hidden">
+        <a href="#">Coding</a>
+        <a href="#">Graphic Design</a>
+        <a href="#">Branding</a>
+        <a href="#">Packaging</a>
+        <a href="#">Animation</a>
       </div>
     </div>
 
     <div class="page">
       <!-- Fixed Left Panel -->
       <aside class="left-panel">
-        <div class="left-inner" aria-hidden="true">
-          <div class="my-projects">MY DESIGN PROJECTS</div>
-        </div>
+        <h1 class="block-effect my-projects" style="--td: 0.8s">
+          <div class="block-reveal" style="--d: 0.1s">MY</div>
+          <div class="block-reveal" style="--d: 0.4s">DESIGN</div>
+          <div class="block-reveal" style="--d: 0.7s">PROJECTS</div>
+        </h1>
       </aside>
 
       <!-- Scrolling Right Panel -->
@@ -54,15 +68,16 @@
           <li class="card" id="card_1">
             <div class="card__content">
               <div class="card__text">
-                <h2>AEIR Move — Brand Identity</h2>
+                <h2>Nha Nhac Phap Lam</h2>
                 <p>
-                  Minimal, kinetic branding for a mobile-first lifestyle label.
+                  Reimagining 19th century Vietnamese art into mordern life
+                  usage.
                 </p>
-                <p><a class="btn" href="#">View case study</a></p>
+                <p><a class="btn" href="#">View process</a></p>
               </div>
               <figure class="card__media">
                 <img
-                  src="images/sunnyaodai.jpg"
+                  src="images/nhanhacphaplam.png"
                   alt="AEIR Move brand identity preview"
                 />
               </figure>
@@ -73,13 +88,16 @@
           <li class="card" id="card_2">
             <div class="card__content">
               <div class="card__text">
-                <h2>Cosmic Motion Graphics</h2>
-                <p>Science-meets-art animations for screens and social.</p>
-                <p><a class="btn" href="#">Watch motion reel</a></p>
+                <h2>Chanel No 5 Perfume box</h2>
+                <p>
+                  An innovative vision for incorporating art with packaging
+                  production and design.
+                </p>
+                <p><a class="btn" href="#">Watch production</a></p>
               </div>
               <figure class="card__media">
                 <img
-                  src="images/DRAFT 1 17h.png"
+                  src="images/chanelno5.png"
                   alt="Cosmic motion graphics scene"
                 />
               </figure>
@@ -90,16 +108,13 @@
           <li class="card" id="card_3">
             <div class="card__content">
               <div class="card__text">
-                <h2>Thủ Thiêm — Street/Punk Visuals</h2>
-                <p>
-                  Graffiti-inspired identity for a youth-centric creative
-                  square.
-                </p>
+                <h2>2025 Tet Snake statue</h2>
+                <p>Design the spirit animals for Lunar New Year.</p>
                 <p><a class="btn" href="#">See visuals</a></p>
               </div>
               <figure class="card__media">
                 <img
-                  src="images/TetSnake.PNG"
+                  src="images/2025ran (1).jpg"
                   alt="Street punk visual identity mockups"
                 />
               </figure>
@@ -110,13 +125,16 @@
           <li class="card" id="card_4">
             <div class="card__content">
               <div class="card__text">
-                <h2>Nebula Series — Digital Art</h2>
-                <p>Painted starbirths and color studies of deep space.</p>
-                <p><a class="btn" href="#">Browse artworks</a></p>
+                <h2>Freelance Modeling</h2>
+                <p>
+                  Strike poses of starbirths and fashion color studies of deep
+                  space.
+                </p>
+                <p><a class="btn" href="#">Browse works</a></p>
               </div>
               <figure class="card__media">
                 <img
-                  src="images/sunnyphotoshoot.jpg"
+                  src="images/sunnyaodai.jpg"
                   alt="Colorful nebula digital painting"
                 />
               </figure>
@@ -125,7 +143,7 @@
         </ul>
 
         <footer class="site-footer">
-          © <span id="y"></span> Sunny — Cosmic Portfolio
+          © <span id="y"></span> Sunny Sunny Sunny — Cosmic Portfolio
         </footer>
       </main>
     </div>
@@ -133,15 +151,35 @@
     <!-- Motion One-based stacking animation -->
     <script type="module" src="portfolio.js"></script>
     <script>
-      // year stamp
-      document.getElementById("y").textContent = new Date().getFullYear();
+      const cosmicBtn = document.getElementById("cosmicBtn");
+      const dropdownMenu = document.getElementById("dropdownMenu");
 
-      // simple dropdown toggle
-      document
-        .querySelector(".menu-btn")
-        .addEventListener("click", function () {
-          document.querySelector(".dropdown").classList.toggle("active");
-        });
+      cosmicBtn.addEventListener("click", () => {
+        dropdownMenu.classList.toggle("active");
+
+        if (dropdownMenu.classList.contains("active")) {
+          // Assign orbit classes with different delays
+          const links = dropdownMenu.querySelectorAll("a");
+          links.forEach((link, i) => {
+            link.style.animation = `orbit 8s linear infinite`;
+            link.style.animationDelay = `${i * 0.5}s`;
+          });
+        } else {
+          // Stop orbiting
+          const links = dropdownMenu.querySelectorAll("a");
+          links.forEach((link) => {
+            link.style.animation = "none";
+          });
+        }
+      });
+    </script>
+    <script>
+      const menuBtn = document.querySelector(".menu-btn");
+      const dropdown = document.querySelector(".dropdown");
+
+      menuBtn.addEventListener("click", () => {
+        dropdown.classList.toggle("active");
+      });
     </script>
   </body>
 </html>
