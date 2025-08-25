@@ -3,246 +3,245 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>About Me • Sunny</title>
+    <title>Sunny • Cosmic Portfolio</title>
     <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="about.css" />
   </head>
   <body>
-    <!-- Dropdown Menu -->
-    <div class="dropdown">
-      <button class="dropdown-btn">
-        <img src="images/Sun Ui.png" alt="Menu" />
-      </button>
-      <div class="dropdown-content">
-        <a href="index.html">Home</a>
-        <a href="about.html">About Me</a>
-        <a href="portfolio.html">Project</a>
-        <a href="#contact">Contact</a>
+    <div class="site-wrapper">
+      <div class="site-scale">
+        <!-- Decorative Sun & Moon -->
+<header class="header-icons">
+  <div class="sun-wrapper">
+    <video autoplay muted loop playsinline class="bg-video">
+      <source src="Video/sunny portfolio video.MOV" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+
+
+
+  <div class="moon-wrapper">
+    <img src="images/Moon.png" alt="Moon" class="icon moon" />
+  </div>
+                  <div class="moon-orbit-gif"></div>
+
+  <div class="moon-orbit">
+    <img src="images/moon1.png" alt="Moon 1" class="moon moon1" />
+    <img src="images/moon2.png" alt="Moon 2" class="moon moon2" />
+    <img src="images/moon3.png" alt="Moon 3" class="moon moon3" />
+    <img src="images/moon4.png" alt="Moon 4" class="moon moon4" />
+
+    <div class="moon-container">
+
+  <!-- Pulsing Rings -->
+  <div class="ring ring1"></div>
+  <div class="ring ring2"></div>
+  <div class="ring ring3"></div>
+
+
+  
+  <!-- New interactive moon inside main Moon -->
+  <div class="interactive-moon">
+    <div class="moon-core"></div>
+
+
+    <div class="project-card card1">
+      <h3>Chanel Perfume</h3>
+      <img src="images/chanelbox.png" alt="Project 1">
+      <p>Packaging design</p>
+    </div>
+
+    <div class="project-card card2">
+      <h3>Post Office Card</h3>
+      <img src="images/postcard.png" alt="Project 2">
+      <p>Graphic Design</p>
+    </div>
+
+    <div class="project-card card3">
+      <h3>Dragon Envelope</h3>
+      <img src="images/lotteryticket.png" alt="Project 3">
+      <p>Printing Design</p>
+    </div>
+  </div>
+
+  <!-- Pulsing Rings -->
+  <div class="ring ring1"></div>
+  <div class="ring ring2"></div>
+  <div class="ring ring3"></div>
+</div>
+
+<div class="orbiting-images">
+  <img src="images/satellite-transparent-19.png" alt="Satellite" class="orbit-image">
+  <img src="images/Clock.PNG" alt="Clock" class="orbit-image">
+
+  <!-- Stage image + card -->
+  <div class="orbit-item">
+    <img src="images/stage.png" alt="Stage" class="orbit-image">
+    <div class="orbit-card">
+      <h3>Stage Project</h3>
+      <p>Culture Design</p>
+    </div>
+  </div>
+
+  <img src="images/astronauts-2ue.png" alt="Violin" class="orbit-image">
+
+  <!-- Chanel image + card -->
+  <div class="orbit-item">
+    <img src="images/chanelno555.png" alt="Chanel" class="orbit-image">
+    <div class="orbit-card">
+      <h3>Chanel Project</h3>
+      <p>Packaging Technique</p>
+    </div>
+  </div>
+
+</div>
+
+  </div>
+</header>
+
+
+        <!-- Dropdown Menu -->
+        <div class="dropdown">
+          <button class="dropdown-btn">
+            <img src="images/Sun Ui.png" alt="Menu" />
+          </button>
+          <div class="dropdown-content">
+            <a href="about.html">About Me</a>
+            <a href="portfolio.html">Project</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+
+        <script src="SUNMENU.js"></script>
+
+        <!-- Main Site Content -->
+        <div class="site">
+          <div class="overlay">
+            <header></header>
+
+            <section class="hero">
+              <div class="title-video-wrapper">
+
+
+                />
+              </div>
+            </section>
+
+            <section id="work" class="card-row">
+              <section class="main-content">
+                <h1 class="main-title">Who is Sunny?</h1>
+
+                <!-- New quote text -->
+                <p class="intro-quote">
+                  I’m SUNNY, a graphic designer who treats pixels like stardust
+                  and deadlines like plot twists. My work lives somewhere
+                  between the cosmic and the everyday, where a color palette can
+                  feel like a good cup of coffee and a font choice can change
+                  the mood of an entire galaxy. I collect odd inspirations (like
+                  street signs that accidentally rhyme) and believe good design
+                  should be as memorable as a song stuck in your head. Think of
+                  me as your friendly design astronaut, ready to launch ideas
+                  into orbit, but always with both feet planted firmly in
+                  creativity.
+                </p>
+
+                <div class="project-word">Project</div>
+
+
+              </section>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        document.getElementById("y").textContent = new Date().getFullYear();
+        document
+          .querySelector(".dropdown-btn")
+          .addEventListener("click", function () {
+            document.querySelector(".dropdown").classList.toggle("active");
+          });
+      </script>
+      <script src="scale.js"></script>
+      <script src="introquote.js"></script>
+    </div>
+    <!-- 3D Carousel Wrapper -->
+    <div id="carousel-wrapper">
+      <div id="shape">
+        <div class="plane p1">
+          Pixels orbit like planets, stories shine like stars.
+        </div>
+        <div class="plane p2">Design</div>
+        <div class="plane p3">
+          Where imagination meets the edges of the universe.
+        </div>
+        <div class="plane p4">Innovation</div>
+        <div class="plane p5">Explore the constellations of my work.</div>
+        <div class="plane p6">
+          I navigate creative black holes to find the light.
+        </div>
+        <div class="plane p7">Branding</div>
+        <div class="plane p8">
+          Curiosity is my spaceship, creativity my fuel.
+        </div>
+        <div class="plane p9">Thinking</div>
       </div>
     </div>
 
-    <div class="about-container">
-      <!-- Left image -->
-      <div class="about-image">
-        <img src="images/Grid cirrcle.png" alt="Decorative Grid Circle" />
-        <canvas id="networkCanvas"></canvas>
-      </div>
+    <!-- === FOOTER START === -->
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- Site Map -->
+        <div class="footer-column">
+          <h3>Site Map</h3>
+          <ul>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="portfolio.html">My Project</a></li>
+            <li><a href="#contact">Personal Contact</a></li>
+            <li><a href="https://www.facebook.com/sun.ny.590647">Social Media</a></li>
+          </ul>
+        </div>
 
-      <!-- Right text -->
-      <div class="about-text">
-        <h1 class="enchanted-title">ABOUT ME</h1>
-        <p class="about-description">
-          I’m Sunny, a graphic designer whose work blends clean, intentional
-          design with a cosmic sense of wonder. Like mapping constellations, I
-          connect ideas into visual stories, from branding and identities to
-          playful illustrations and bold layouts. Inspired by light, color, and
-          the rhythms of the cosmos, I create designs that feel timeless yet
-          alive, lingering in memory like a glimpse of the Milky Way.
-        </p>
-        <p class="about-quote">"Design in lightyears, deliver in seconds."</p>
-      </div>
-    </div>
+        <!-- Where to Find Me -->
+        <div class="footer-column">
+          <h3>Find Me</h3>
+          <ul>
+            <li><span>1600 Pennsylvania Avenue Washington, D.C</span></li>
+            <li>
+              <a href="mailto:yourname@email.com">s4144325@rmit.edu.vn</a>
+            </li>
+            <li><a href="tel:+84123456789">+84 674136420</a></li>
+          </ul>
+        </div>
 
-    <!-- STUDIES section -->
-    <section class="studies-section">
-      <div class="studies-text">
-        <h2>STUDIES</h2>
-        <div class="timeline">
-          <!-- Timeline vertical line -->
-          <div class="timeline-line"></div>
-
-          <!-- First entry -->
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <p class="timeline-title">
-                2022 - 2024 University of Architecture Ho Chi Minh City
-              </p>
-              <p class="timeline-desc">
-                Mastering design fundamentals and exploring illustration,
-                branding, and print. This was my launchpad, where I learned to
-                turn abstract ideas into striking, well-structured visuals.
-                Enhances visual design thinking Built a strong foundation in
-                design principles, visual storytelling, and creative
-                problem-solving. Explored illustration, branding, and print —
-                turning abstract concepts into bold, structured visual.
-              </p>
-            </div>
-          </div>
-
-          <!-- Second entry -->
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <p class="timeline-title">
-                2025 - 2027 Royal Melbourne Institute of Technology
-              </p>
-              <p class="timeline-desc">
-                Diving into digital media, interactive design, and motion
-                graphics. I’m expanding my craft beyond static visuals, creating
-                immersive experiences and pushing ideas into new creative
-                orbits. Website coding2025 - 2027 Royal Melbourne Institute of
-                Technology Expanding into digital media, interactive design, and
-                motion graphics — pushing ideas beyond static form and crafting
-                immersive, story-driven creative worlds
-              </p>
-            </div>
-          </div>
-          <div class="planet-wrapper">
-            <div class="planet"></div>
-            <div class="moon"></div>
-            <div class="study-card">
-              <h3>Fun Fact #1</h3>
-              <p>
-My GPA for UAH is 4.0 for 4 consecutive sememster, and I was nominated for a 700 million VND scholarship to study in Australia.
-              </p>
-          </div>          
-          </div>
-        </section>
-
-    <!-- EXPERIENCES section -->
-    <section class="experiences-section">
-      
-      <div class="experience-planet-wrapper">
-        <div class="experience-planet"></div>
-        <div class="experience-moon"></div>
-        <div class="experience-card">
-          <h3>Fun Fact #2</h3>
-          <p>The 2025 Lunar New Year snake spirit animal at Nguyen Hue walking street initial idea was brought up by me while working with TA Architecture.</p>
+        <!-- Contact Form -->
+        <div class="footer-column">
+          <h3>Contact Me</h3>
+          <form class="contact-form">
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <input type="tel" placeholder="Your Phone" />
+            <textarea placeholder="Your Message" rows="3"></textarea>
+            <button type="submit">Send</button>
+          </form>
         </div>
       </div>
 
-      <div class="experiences-text">
-        <h2>EXPERIENCES</h2>
-      </div>
-
-      <div class="timeline">
-        <!-- Timeline vertical line -->
-        <div class="timeline-line"></div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3 class="timeline-title">
-              2018 - 2020 Conceptual Artist - Piano Musician
-            </h3>
-            <p class="timeline-desc">Create traditional and digital painting</p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3 class="timeline-title">2020 - 2022 Freelance Designer</h3>
-            <p class="timeline-desc">
-              Illustrator - Graphic - Branding designer<br />
-              Create visuals for social media pages, digital illustration
-            </p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3 class="timeline-title">2022 Ho Chi Minh City Television</h3>
-            <p class="timeline-desc">Collaborator Graphic Designer</p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3 class="timeline-title">
-              2024 TA Landscape Architecture Company
-            </h3>
-            <p class="timeline-desc">
-              Graphic - Illustration - Conceptual Designer.<br />
-              Contributed to architectural and design projects, blending
-              technical precision with creative vision. Gained hands-on
-              experience in translating structural concepts into clear,
-              compelling visual presentations.
-            </p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3 class="timeline-title">
-              2024 Fujifilm Business Innovation Vietnam Corporation
-            </h3>
-            <p class="timeline-desc">
-              Key Visual Event Designer.<br />
-              Worked on visual communication and marketing materials, ensuring
-              every piece carried clarity, brand consistency, and a touch of
-              creative spark. Learned to balance corporate identity with fresh,
-              engaging design.
-            </p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3 class="timeline-title">2024 - AESUN Creative Art Class</h3>
-            <p class="timeline-desc">
-              Serving as an art instructor and creative collaborator, guiding
-              students through drawing fundamentals while infusing lessons with
-              curiosity and creative exploration. Helped build a vibrant,
-              inspiring learning environment.
-            </p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3 class="timeline-title">
-              2024 - RMIT Innovation Social Entrepreneurship Club & RMIT Fashion
-              Club
-            </h3>
-            <p class="timeline-desc">
-              Design/Media Director - Marketing Concept - Art/Creative
-              Director.<br />
-              Fashion photoshoots, marketing campaigns, and media event
-              directing.
-            </p>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <h3 class="timeline-title">2025 - Soki - Beverage Brand</h3>
-            <p class="timeline-desc">Branding - Marketing Director</p>
-          </div>
+      <!-- Bottom strip -->
+      <div class="footer-bottom">
+        <p>© 2025 SUNNY. All Left and Rights Reserved.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
         </div>
       </div>
-    </section>
-
+    </footer>
+    <!-- === FOOTER END === -->
     <!-- Scripts -->
-    <script src="SUNMENU.js"></script>
-    <script src="about.js"></script>
-    <script>
-      const planet = document.querySelector(".planet");
-      const studyCard = document.querySelector(".study-card");
-    
-      planet.addEventListener("click", () => {
-        studyCard.classList.toggle("active");
-      });
-    </script>
-
-<script>
-  const expPlanet = document.querySelector(".experience-planet");
-  const expCard = document.querySelector(".experience-card");
-
-  expPlanet.addEventListener("click", () => {
-    expCard.classList.toggle("active");
-  });
-</script>
-
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="carousel.js"></script>
+    <script src="projectword.js"></script>
   </body>
 </html>
-
 
